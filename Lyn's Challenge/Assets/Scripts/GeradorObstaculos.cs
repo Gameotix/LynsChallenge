@@ -34,7 +34,14 @@ public class GeradorObstaculos : MonoBehaviour
             random = Random.Range(0, 101);
 
             GrauDificuldade(0, 21, 4, 0.5f, 3, ObstaculoSelecionado(obstaculos));
-            GrauDificuldade(21, 51, 5, 0.8f, 2.5f, ObstaculoSelecionado(obstaculos));
+            if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                GrauDificuldade(21, 51, 7, 1.3f, 1.5f, ObstaculoSelecionado(obstaculos));
+            }
+            else
+            {
+                GrauDificuldade(21, 51, 5, 0.8f, 2.5f, ObstaculoSelecionado(obstaculos));
+            }
             GrauDificuldade(51, 101, 6, 1f, 2.5f, ObstaculoSelecionado(obstaculos));
             GrauDificuldade(101, 151, 6.5f, 1.1f, 2.3f, ObstaculoSelecionado(obstaculos));
             GrauDificuldade(151, 201, 7f, 1.1f, 2.2f, ObstaculoSelecionado(obstaculos));
@@ -121,39 +128,116 @@ public class GeradorObstaculos : MonoBehaviour
         switch (Nivel())
         {
             case 0:
-                if (random <= 40)
+                if (SceneManager.GetActiveScene().buildIndex == 1)
                 {
-                    return obstaculos[0];
-                }
-                else if (random > 40 && random <= 60)
-                {
-                    return obstaculos[3];
-                }
-                else if (random > 60 && random <= 80)
-                {
-                    return obstaculos[4];
+                    if (random <= 30)
+                    {
+                        return obstaculos[0];
+                    }
+                    else if (random > 30 && random <= 40)
+                    {
+                        return obstaculos[1];
+                    }
+                    else if (random > 40 && random <= 50)
+                    {
+                        return obstaculos[2];
+                    }
+                    else if (random > 50 && random <= 65)
+                    {
+                        return obstaculos[3];
+                    }
+                    else if (random > 65 && random <= 98)
+                    {
+                        return obstaculos[4];
+                    }
+                    else
+                    {
+                        return obstaculos[5];
+                    }
                 }
                 else
                 {
-                    return obstaculos[5];
+                    if (random <= 40)
+                    {
+                        return obstaculos[0];
+                    }
+                    else if (random > 40 && random <= 60)
+                    {
+                        return obstaculos[3];
+                    }
+                    else if (random > 60 && random <= 80)
+                    {
+                        return obstaculos[4];
+                    }
+                    else
+                    {
+                        return obstaculos[5];
+                    }
                 }
+                
             case 1:
-                if (random <= 30)
+                if (SceneManager.GetActiveScene().buildIndex == 3)
                 {
-                    return obstaculos[0];
-                }
-                else if (random > 30 && random <= 60)
-                {
-                    return obstaculos[5];
-                }
-                else if (random > 60 && random <= 90)
-                {
-                    return obstaculos[4];
+                    if (random <= 10)
+                    {
+                        return obstaculos[0];
+                    }
+                    else if (random > 10 && random <= 20)
+                    {
+                        return obstaculos[1];
+                    }
+                    else if (random > 20 && random <= 30)
+                    {
+                        return obstaculos[2];
+                    }
+                    else if (random > 30 && random <= 35)
+                    {
+                        return obstaculos[3];
+                    }
+                    else if (random > 35 && random <= 40)
+                    {
+                        return obstaculos[4];
+                    }
+                    else if (random > 40 && random <= 45)
+                    {
+                        return obstaculos[5];
+                    }
+                    else if (random > 45 && random <= 55)
+                    {
+                        return obstaculos[6];
+                    }
+                    else if (random > 55 && random <= 70)
+                    {
+                        return obstaculos[7];
+                    }
+                    else if (random > 70 && random <= 85)
+                    {
+                        return obstaculos[8];
+                    }
+                    else
+                    {
+                        return obstaculos[5];
+                    }
                 }
                 else
                 {
-                    return obstaculos[2];
-                }
+                    if (random <= 30)
+                    {
+                        return obstaculos[0];
+                    }
+                    else if (random > 30 && random <= 60)
+                    {
+                        return obstaculos[5];
+                    }
+                    else if (random > 60 && random <= 90)
+                    {
+                        return obstaculos[4];
+                    }
+                    else
+                    {
+                        return obstaculos[2];
+                    }
+                } 
             case 2:
                 if (random <= 30)
                 {

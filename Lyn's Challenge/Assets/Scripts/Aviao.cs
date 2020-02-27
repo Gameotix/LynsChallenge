@@ -38,6 +38,7 @@ public class Aviao : MonoBehaviour
             efeitoMagia.GetComponent<SpriteRenderer>().enabled = false;
             animator.SetBool("jumping", true);
             animator.SetBool("falling", false);
+            animator.SetBool("running", false);
         }
 
         if (Input.GetButtonUp("Fire1"))
@@ -45,6 +46,7 @@ public class Aviao : MonoBehaviour
             efeitoMagia.GetComponent<Animator>().SetBool("jump", false);
             animator.SetBool("falling", true);
             animator.SetBool("jumping", false);
+            animator.SetBool("running", false);
         }
     }
 
@@ -81,9 +83,17 @@ public class Aviao : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Floor"))
         {
+            animator.SetBool("running", false);
             animator.SetBool("jumping", false);
             animator.SetBool("falling", false);
             efeitoMagia.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        if (collision.gameObject.CompareTag("ChaoCorrivel"))
+        {
+            animator.SetBool("running", true);
+            animator.SetBool("jumping", false);
+            animator.SetBool("falling", false);
         }
 
         if (collision.gameObject.CompareTag("Botao"))

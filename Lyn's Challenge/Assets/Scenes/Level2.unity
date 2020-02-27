@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -302,11 +302,10 @@ GameObject:
   - component: {fileID: 182208652}
   - component: {fileID: 182208651}
   - component: {fileID: 182208648}
-  - component: {fileID: 182208650}
   - component: {fileID: 182208649}
   m_Layer: 0
   m_Name: chao (1)
-  m_TagString: Obstaculo
+  m_TagString: ChaoCorrivel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,25 +349,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.08, y: 0.6374645}
   m_EdgeRadius: 0
---- !u!95 &182208650
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182208647}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b723c48b5115150458adf06d2e958ead, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &182208651
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -407,7 +387,7 @@ SpriteRenderer:
   m_SortingLayerID: -1736036559
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 7d6ac4f031034c64b989d353c4533bd7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8b962cc42b01b64b9b1039615755cc7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -814,7 +794,7 @@ SpriteRenderer:
   m_SortingLayerID: 1006899765
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: aa3705b71cd985d4e8b5e8a7b46c6e57, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -822,7 +802,7 @@ SpriteRenderer:
   m_Size: {x: 8.08, y: 0.71}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &441733498
@@ -1418,7 +1398,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1736036559
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2c44ffdac39916749a8a8b7972b1713e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1954,7 +1934,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030013149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 0, z: 0}
+  m_LocalPosition: {x: -4.47, y: -2.53, z: 0}
   m_LocalScale: {x: 3.1757069, y: 3.190541, z: 1.0523175}
   m_Children:
   - {fileID: 792926694}
@@ -3862,11 +3842,10 @@ GameObject:
   - component: {fileID: 1839085568}
   - component: {fileID: 1839085571}
   - component: {fileID: 1839085567}
-  - component: {fileID: 1839085570}
   - component: {fileID: 1839085569}
   m_Layer: 0
   m_Name: chao
-  m_TagString: Obstaculo
+  m_TagString: ChaoCorrivel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3924,25 +3903,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.08, y: 0.6374645}
   m_EdgeRadius: 0
---- !u!95 &1839085570
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839085566}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b723c48b5115150458adf06d2e958ead, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1839085571
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3981,7 +3941,7 @@ SpriteRenderer:
   m_SortingLayerID: -1736036559
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 7d6ac4f031034c64b989d353c4533bd7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8b962cc42b01b64b9b1039615755cc7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

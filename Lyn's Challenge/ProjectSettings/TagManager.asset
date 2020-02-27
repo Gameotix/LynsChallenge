@@ -13,6 +13,7 @@ TagManager:
   - Redirecionador2
   - Botao
   - EndLevel
+  - ChaoCorrivel
   layers:
   - Default
   - TransparentFX
