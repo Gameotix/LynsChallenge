@@ -15,6 +15,8 @@ public class LynBeatEmUp : MonoBehaviour
     private bool onGround;
     [SerializeField]
     private bool isDead = false;
+    [SerializeField]
+    private GameObject attackSprite;
     private float x;
     private float z;
     private bool facingRight;
@@ -26,6 +28,8 @@ public class LynBeatEmUp : MonoBehaviour
     private GameObject jumpButton;
     [SerializeField]
     private GameObject efeitoMagia;
+    public float minHeight;
+    public float maxHeight;
 
     private void Awake()
     {
@@ -34,34 +38,30 @@ public class LynBeatEmUp : MonoBehaviour
         currentSpeed = maxSpeed;
     }
 
-    private void Start()
-    {
-
-    }
-
     // Update is called once per frame
     private void Update()
     {
         x = SimpleInput.GetAxisRaw("Horizontal");
         z = SimpleInput.GetAxisRaw("Vertical");
+        if (x != 0)
+        {
+            anim.SetBool("walking", true);
+        }
+        else
+        {
+            anim.SetBool("walking", false);
+        }
 
-
+        anim.SetBool("dead", isDead);
     }
 
     private void FixedUpdate()
     {
         if (!isDead)
         {
+            //Personagem andar:
             rbPlayer.velocity = new Vector3(x * currentSpeed, rbPlayer.velocity.y, z * currentSpeed);
-            if (x != 0)
-            {
-                anim.SetBool("walking", true);
-            }
-            else
-            {
-                anim.SetBool("walking", false);
-            }
-
+            //Girar sprite quando for para a esquerda:
             if (x < 0 && !facingRight)
             {
                 Flip();
@@ -71,6 +71,7 @@ public class LynBeatEmUp : MonoBehaviour
                 Flip();
             }
 
+            //Controle da animação de pulo e do efeito da magia de vento:
             if (jumpButton.GetComponent<buttonPressed>().buttonClicked)
             {
                 efeitoMagia.GetComponent<SpriteRenderer>().enabled = false;
@@ -81,9 +82,16 @@ public class LynBeatEmUp : MonoBehaviour
                 anim.SetBool("falling", true);
                 anim.SetBool("jumping", false);
             }
+
+            //Impedir que o personagem ande além dos limites setados pela câmera:
+            float minWidth = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 10)).x;
+            float maxWidth = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 10)).x;
+
+            rbPlayer.position = new Vector3(Mathf.Clamp(rbPlayer.position.x, minWidth + 1, maxWidth - 1), rbPlayer.position.y, Mathf.Clamp(rbPlayer.position.z, minHeight, maxHeight));
         }
     }
 
+    //Função para o pulo (ou voo):
     public void Impulse()
     {
         rbPlayer.velocity = Vector3.zero;
@@ -95,6 +103,15 @@ public class LynBeatEmUp : MonoBehaviour
         anim.SetBool("falling", false);
     }
 
+    //Animação de ataque:
+    public void Attack()
+    {
+        if (!isDead)
+        {
+            anim.SetTrigger("attack");
+        }
+    }
+
     private void Flip()
     {
         facingRight = !facingRight;
@@ -103,6 +120,20 @@ public class LynBeatEmUp : MonoBehaviour
         this.transform.localScale = scaleX;
     }
 
+    //Zera a velocidade. Esse método é ativado como evento nas animações de ataque.
+    public void ZeroSpeed()
+    {
+        currentSpeed = 0;
+    }
+
+    //Faz a velocidade voltar ao normal após terminar os ataques e voltar para o estado de "idle".
+    public void ResetSpeed()
+    {
+        currentSpeed = maxSpeed;
+    }
+
+
+    //Colisões:
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Floor"))
