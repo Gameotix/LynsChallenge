@@ -14,6 +14,7 @@ TagManager:
   - Botao
   - EndLevel
   - ChaoCorrivel
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -25,10 +26,10 @@ TagManager:
   - 
   - Chao
   - Lava
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - PlayerHit
+  - Enemy
+  - EnemyHit
   - 
   - 
   - 
