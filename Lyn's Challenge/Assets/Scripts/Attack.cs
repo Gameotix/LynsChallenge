@@ -10,9 +10,15 @@ public class Attack : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Enemy enemy = other.GetComponent<Enemy>();
+        LynBeatEmUp player = other.GetComponent<LynBeatEmUp>();
         if (enemy != null)
         {
             enemy.TookDamage(damage);
+        }
+
+        if (player != null)
+        {
+            player.TookDamage(damage);
         }
     }
 }

@@ -6,6 +6,11 @@ using UnityEngine.EventSystems;
 
 public class LynBeatEmUp : MonoBehaviour
 {
+    public int MaxHealth = 10;
+    public string Name;
+    public Sprite LynSprite;
+
+    private int currentHealth;
     private Rigidbody rbPlayer;
     private Animator anim;
     [SerializeField]
@@ -15,8 +20,6 @@ public class LynBeatEmUp : MonoBehaviour
     private bool onGround;
     [SerializeField]
     private bool isDead = false;
-    [SerializeField]
-    private GameObject attackSprite;
     private float x;
     private float z;
     private bool facingRight;
@@ -36,6 +39,7 @@ public class LynBeatEmUp : MonoBehaviour
         rbPlayer = this.GetComponent<Rigidbody>();
         anim = this.GetComponent<Animator>();
         currentSpeed = maxSpeed;
+        currentHealth = MaxHealth;
     }
 
     // Update is called once per frame
@@ -146,6 +150,15 @@ public class LynBeatEmUp : MonoBehaviour
                 anim.SetBool("falling", false);
                 anim.SetBool("jumping", false);
             }
+        }
+    }
+
+    public void TookDamage(int damage)
+    {
+        if (!isDead)
+        {
+            currentHealth -= damage;
+            FindObjectOfType<UIManagerBeatEmUp>().UpdateHealth(currentHealth); 
         }
     }
 }

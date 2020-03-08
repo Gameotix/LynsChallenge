@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 1933240278144216854}
   - component: {fileID: 1933240278144216856}
   m_Layer: 12
-  m_Name: Enemy
+  m_Name: Enemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -192,6 +192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
+  EnemynName: Monstro de Barro
+  EnemyImage: {fileID: 21300000, guid: aee5bd565f184b2418466858fca8be16, type: 3}
   attackRate: 1
   damageTime: 1.5
   target: {fileID: 0}

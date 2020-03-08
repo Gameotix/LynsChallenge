@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int maxHealth;
+    public string EnemynName;
+    public Sprite EnemyImage;
 
     private int currentHealth;
     private Rigidbody rbEnemy;
@@ -85,7 +87,6 @@ public class Enemy : MonoBehaviour
             if (walkTimer >= Random.Range(1f, 2f))
             {
                 zForce = Random.Range(-1, Mathf.Abs(zForceVariation) + 0.1f);
-                Debug.Log(zForce);
                 walkTimer = 0;
             }
 
@@ -128,6 +129,7 @@ public class Enemy : MonoBehaviour
             damaged = true;
             animEnemy.SetTrigger("takingDamage");
             currentHealth -= damage;
+            FindObjectOfType<UIManagerBeatEmUp>().UpdateEnemyUI(maxHealth, currentHealth, EnemynName, EnemyImage);
             if (currentHealth <= 0)
             {
                 isDead = true;
